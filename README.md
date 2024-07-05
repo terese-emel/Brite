@@ -1,8 +1,10 @@
 # Brite
 
-##QA Engineer Challenge
+## QA Engineer Challenge
+
 Please create a git repository and send a link to it as part of your solution.
 Your checklist is the following one:
+
 1. Using Cypress as automation framework, implement the following automated tests:
 - Go to IMDb.com, search for Nicolas Cage and access his profile; then unfold the
 Upcoming tab in the Credits section, and click on the first movie with a Completed
