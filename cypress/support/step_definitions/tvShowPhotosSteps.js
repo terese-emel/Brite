@@ -28,32 +28,28 @@ When('I go to the "Photos" section', () => {
 Then("I see the list of photos", () => {
   cy.get("[data-testid=mv-gallery-button]")
     .click()
-    .get("[data-testid=section-images]").should("be.visible"); 
+    .get("[data-testid=section-images]")
+    .should("be.visible");
 });
 
 // Implement logic to search for photos based on actor name within the Photos section
-When('I search for photos containing {string}', (actorName) => {
+When("I search for photos containing {string}", (actorName) => {
   cy.get("[data-testid=image-chip-dropdown-test-id]")
     .click()
-    .get(".ipc-select__input-container")
-    .find("select option") // Target option elements within the select
-    .contains(actorName)
+    .get("select[id=Person-filter-select-dropdown]")
     .click({ force: true })
-    .get("[data-testid=filter-menu-chip-nm0001803]").should("be.visible").click();
-  });
+    .type(actorName)
+    .select(actorName)
+    .should("have.value", "nm0001803")
+    .contains(actorName)
+    .click({ force: true });
+});
 
-Then('I see photos potentially containing {string}', (actorName) => {
- cy.get('img').filter(($img) => {
-  const altText = $img.attr('alt'); // Access alt attribute directly within the filter callback
-  return altText?.toLowerCase().includes('danny trejo'.toLowerCase());
-})
-.then(($filteredImgs) => {
-  if ($filteredImgs.length > 0) {
-    cy.log(`Found photos that might contain "Danny Trejo".`);
-  } else {
-    cy.log(`No photos found containing "Danny Trejo". Results may vary.`);
-  }
-   });
+Then("I see photos potentially containing {string}", (actorName) => {
+  cy.get("img").filter(($img) => {
+    const altText = $img.attr("alt"); // Access alt attribute directly within the filter callback
+    altText.eq(actorName);
+  });
 });
 
 When("I click on the second photo in the list", () => {
@@ -61,5 +57,5 @@ When("I click on the second photo in the list", () => {
 });
 
 Then("I see the enlarged photo", () => {
-  cy.get(".modal-content").should("be.visible");  
+  cy.get(".modal-content").should("be.visible");
 });
