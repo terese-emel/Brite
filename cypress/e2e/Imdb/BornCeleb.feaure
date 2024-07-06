@@ -1,0 +1,19 @@
+Feature: IMDb - Born Yesterday Celebrities
+
+Scenario: Search for Celebrity Born Yesterday and Take Screenshot
+
+  Given I am on the IMDb homepage (https://www.imdb.com/)
+  When I click the Menu button
+  And I navigate to "Born today" section
+  Then I should see a search bar
+  When I clear the default search term
+  And I click on the "Birthday" dropdown
+  And I select "Yesterday" from the dropdown
+  Then I should see a list of celebrities born yesterday
+  When I click on the 3rd name in the list
+  Then I take a screenshot of the celebrity page
+
+  Examples:
+    | Name           |
+    | -------------- |
+    | Marlene Dietrich |
