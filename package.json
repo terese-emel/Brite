@@ -1,0 +1,33 @@
+{
+  "name": "brite",
+  "version": "1.0.0",
+  "description": "QA Challenges",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test:chrome": "npx cypress run --browser chrome",
+    "test:firefox": "npx cypress run --browser firefox",
+    "test": "cypress open --e2e --browser chrome",
+    "test:all": "cypress run --spec \"**/*.features\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "Brite"
+  },
+  "keywords": [
+    "cypress",
+    "gherkin"
+  ],
+  "author": "terese emel",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.13.0"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/step_definitions/",
+    "nonGlobalStepDefinitions": false
+  }
+}
