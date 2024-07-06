@@ -1,12 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-Given("I am on the IMDB website", () => {
-  cy.visit("https://www.imdb.com/");
-});
 
-When("I open the navigation menu", () => {
-  cy.get('[data-testid="hamburger-menu-icon"]').click(); // Adjust selector if needed
-});
 
 When('I navigate to the "Top 250 TV Shows" section', () => {
   cy.get('[data-testid="explore-dropdown-content"] a')
