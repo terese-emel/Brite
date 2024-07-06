@@ -1,8 +1,8 @@
 Feature: IMDb Top Box Office and Rating
 
   Scenario: Rate a movie in Top Box Office
-    Given I am on the IMDB website
-    When I open the navigation menu
+    Given I am on the Imdb website
+    When I open the navigation menu using navigation drawer icon
     When I navigate to the "Top Box Office" section
     Then I see the "Top Box Office" list
     When I click on the second item in the list

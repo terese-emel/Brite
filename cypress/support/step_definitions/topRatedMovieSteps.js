@@ -2,9 +2,6 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 let ratingHref;
 
-When("I open the navigation menu", () => {
-  cy.get('[id="imdbHeader-navDrawerOpen"]').click(); 
-});
 
 When('I navigate to the "Top Box Office" section', () => {
   cy.get('[data-testid="nav-link-category"] span')

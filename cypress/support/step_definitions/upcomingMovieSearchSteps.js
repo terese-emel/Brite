@@ -1,15 +1,13 @@
-
-
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-
-
 
 When("I search for {string}", (searchTerm) => {
   cy.get('input[name="q"]').type(searchTerm + "{enter}");
 });
 
 Then("I should see Nicolas Cage in the search results", () => {
-   cy.get(".ipc-metadata-list-summary-item__c a").first().should("contain", "Nicolas Cage");
+  cy.get(".ipc-metadata-list-summary-item__c a")
+    .first()
+    .should("contain", "Nicolas Cage");
 });
 
 When("I click on the first search result", () => {
@@ -21,15 +19,15 @@ Then("I am on Nicolas Cage's profile page", () => {
 });
 
 When('I unfold the "Credits" section', () => {
- cy.get("[data-testid^=Filmography]").find('a[href*="#credits"]').click(); // Adjust selector if needed
+  cy.get("[data-testid^=Filmography]").find('a[href*="#credits"]').click(); // Adjust selector if needed
 });
 
 Then('I see the "Upcoming" tab', () => {
- cy.get("[data-testid^=Filmography]")
-   .get("[id^=actor-upcoming-projects]")
-   .find(".ipc-inline-list__item")
-   .first()
-   .should("contain", "Upcoming");
+  cy.get("[data-testid^=Filmography]")
+    .get("[id^=actor-upcoming-projects]")
+    .find(".ipc-inline-list__item")
+    .first()
+    .should("contain", "Upcoming");
 });
 
 When('I click on the "Upcoming" tab', () => {
@@ -37,7 +35,7 @@ When('I click on the "Upcoming" tab', () => {
     .get("[id^=actor-upcoming-projects]")
     .find(".ipc-inline-list__item")
     .first()
-    .click(); 
+    .click();
 });
 
 Then('the "Upcoming" tab is active', () => {
@@ -49,8 +47,9 @@ Then('the "Upcoming" tab is active', () => {
 });
 
 When("I click on the first movie with the 'Completed' tag", () => {
-  cy.get("[id^=actor-upcoming-projects]") 
-    .find(".ipc-metadata-list-summary-item__c").wait(6000) 
+  cy.get("[id^=actor-upcoming-projects]")
+    .find(".ipc-metadata-list-summary-item__c")
+    .wait(6000)
     .first()
     .contains("Post-production")
     .parent()
@@ -61,4 +60,3 @@ When("I click on the first movie with the 'Completed' tag", () => {
       cy.log(`Clicked on movie with href: ${movieHref}`); // Log the movie href
     });
 });
-
