@@ -11,14 +11,6 @@ function getYesterdayDate() {
 }
 let thirdTitleText;
 
-Given("I am on the IMDb homepage", () => {
-  cy.visit("https://www.imdb.com/");
-});
-
-Given("I open the navigation menu", () => {
-  // Replace with the appropriate selector for the navigation menu button
-  cy.get("[id='imdbHeader-navDrawerOpen']").click();
-});
 
 Given('I navigate to the "Celebs" section', () => {
   cy.get('[data-testid="nav-link-category"] span').contains("Celebs").click();

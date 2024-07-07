@@ -3,6 +3,7 @@ Feature: Birthday Search
   Scenario: Search for celebrities born today (40 years ago) and click on 1st description link
 
     Given I am on the IMDb homepage
+    When I open the navigation menu using navigation drawer icon
     When I navigate to the "Born Today" section
     Then I clear the pre-selected birthday filter
     When I unfold the "Birth date" dropdown and select "From: Today"

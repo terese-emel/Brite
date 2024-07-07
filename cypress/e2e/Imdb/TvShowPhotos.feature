@@ -2,7 +2,7 @@ Feature: IMDb TV Show Photos
 
   Scenario: Search Breaking Bad photos and click on 2nd photo
 
-    Given I am on the Imdb website
+    Given I am on the IMDb homepage
     When I open the navigation menu using navigation drawer icon
     When I navigate to the "Top 250 TV Shows" section
     Then I see the "Top 250 TV Shows" list

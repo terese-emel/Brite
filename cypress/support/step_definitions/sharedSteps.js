@@ -2,7 +2,7 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 const baseUrl = "https://www.imdb.com/";
 
-Given("I am on the Imdb website", () => {
+Given("I am on the IMDb homepage", () => {
   cy.visit(baseUrl);
 });
 
