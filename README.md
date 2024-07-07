@@ -24,6 +24,9 @@ delete default search, then unfold Birth date and search for Celebrities born th
 day as today but exactly 40 years ago, using the date picker for the “from” option and
 the string field for the “to” option. Now on the 1st result in the list, click on the 1st link
 you can find on the description (if any) and take a screenshot.
+
+## Solution File path : cypress/e2e/Imdb and step_definitions are under cypress/support/step_definitions/
+
 2. Using Cypress as automation framework, implement the following API automated
 tests:
 
@@ -43,6 +46,8 @@ one with more “potency”, and call
 https://pokeapi.co/api/v2/berry/{id or name}/ using
 that info, making sure we get the expected responses.
 
+## Solution File path : cypress/e2e/API 
+
 3. Implement the following manual test:
 - Given the following form:
 <label for="tentacles">Number of tentacles (10-100):</label>
@@ -53,7 +58,11 @@ Write all necessary test cases using Gherkin language to make sure the input fie
 working as expected; valid values will lead to a "Success" message, and invalid to an "Error"
 message.
 
+## Solution File path : cypress/e2e/Tentacle
+
 4. Write the following bug report:
 While performing the 2nd test on point 1 (Top Box Office test) you found each time you try to
 rate a movie with 10 stars, the Rate button is not enabled, so you cannot submit the data.
 Write a bug to report this issue.
+
+## Solution File path : cypress/BugReport/BugReport.md
