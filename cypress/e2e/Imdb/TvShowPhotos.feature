@@ -4,7 +4,7 @@ Feature: IMDb TV Show Photos
 
     Given I am on the IMDb homepage
     When I open the navigation menu using navigation drawer icon
-    When I navigate to the "Top 250 TV Shows" section
+    When I navigate to the "Top 250 TV Shows" section under "TV Shows"
     Then I see the "Top 250 TV Shows" list
     When I click on "Breaking Bad"
     Then I am on TV Show page
