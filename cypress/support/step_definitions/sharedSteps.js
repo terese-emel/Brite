@@ -1,9 +1,7 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-const baseUrl = "https://www.imdb.com/";
-
 Given("I am on the IMDb homepage", () => {
-  cy.visit(baseUrl);
+  cy.visit("https://www.imdb.com/", { timeout: 60000 });
 });
 
 When("I open the navigation menu using navigation drawer icon", () => {
