@@ -36,26 +36,22 @@ Then("I see the list of photos", () => {
 When("I search for photos containing {string}", (actorName) => {
   cy.get("[data-testid=image-chip-dropdown-test-id]")
     .click()
-    .get("select[id=Person-filter-select-dropdown]")
-    .click({ force: true })
-    .type(actorName)
-    .select(actorName)
-    .should("have.value", "nm0001803")
-    .contains(actorName)
-    .click({ force: true });
+    .get("[id=Person-filter-select-dropdown]")
+    .get("select")
+    .first()
+    .select("nm0001803")
+    .get('button[title="Close Prompt"]')
+    .click();
 });
 
 Then("I see photos potentially containing {string}", (actorName) => {
-  cy.get("img").filter(($img) => {
-    const altText = $img.attr("alt"); // Access alt attribute directly within the filter callback
-    altText.eq(actorName);
-  });
+  cy.get(`img[alt*="${actorName}"]`).should("be.visible");
 });
 
 When("I click on the second photo in the list", () => {
-  cy.get("[data-testid=sub-section-images]").get("img").eq(1).click(); // Select the second photo (index starts from 0)
+  cy.get("img").should("be.visible").eq(1).click(); // Select the second photo (index starts from 0)
 });
 
 Then("I see the enlarged photo", () => {
-  cy.get(".modal-content").should("be.visible");
+ cy.url().should("include", "/mediaviewer/");
 });
