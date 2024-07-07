@@ -1,9 +1,13 @@
 # Bug Report: Rate Button Not Enabled for 10-Star Rating (Top Box Office Test)
 
 | Project: Imdb | Component: Top Box Office |
-|Issue Type: Bug|Tester: Terese Emel|
+|---|---|
+|Issue Type: Bug| Tester: Terese Emel|
+|---|---|
 | Reported Date: 2024-07-07| Assigned To: Developer1 |
+|---|---|
 | Severity: Medium | Priority: High |
+|---|---|
 | Browsers : Chrome,Firefox| Devices : Mac, Windows |
 
 
