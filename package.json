@@ -4,8 +4,8 @@
   "description": "QA Challenges",
   "main": "cypress.config.js",
   "scripts": {
-    "test:chrome": "npx cypress open test:all --browser chrome",
-    "test:firefox": "npx cypress open test:all --browser firefox",
+    "test:chrome": "npx cypress open --e2e --browser chrome test:all",
+    "test:firefox": "npx cypress open --e2e --browser firefox test:all",
     "test": "cypress open --e2e --browser chrome",
     "test:all": "cypress run --spec \"**/*.features\""
   },
