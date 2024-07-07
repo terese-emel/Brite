@@ -10,20 +10,28 @@ When("I open the navigation menu using navigation drawer icon", () => {
   cy.get('[id="imdbHeader-navDrawerOpen"]').click();
 });
 
-Given('I navigate to the "Born Today" section', () => {
-  // Replace with appropriate selector to navigate to Born Today section (e.g., cy.get("[data-testid='born-today-link']").click())
-  cy.get("[id='imdbHeader-navDrawerOpen']")
-    .click()
-    .get('[data-testid="nav-link-category"] span')
-    .contains("Celebs")
-    .click()
-    .get("[href='/feature/bornondate/?ref_=nv_cel_brn']")
-    .click();
-});
+When(
+  "I navigate to the {string} section under {string}",
+  (itemText, sectionName) => {
+    cy.get('[data-testid="nav-link-category"] span')
+      .contains(sectionName)
+      .click()
+      .get("span")
+      .get(".ipc-list-item__text")
+      .contains(itemText)
+      .click();
+  }
+);
 
 When("I clear the pre-selected birthday filter", () => {
-  cy.get("[data-testid^=selected-input-chip-list-birthday]").click().get("[data-testid=adv-search-expand-all]")
+  cy.get("[data-testid^=selected-input-chip-list-birthday]")
+    .click()
+    .get("[data-testid=adv-search-expand-all]")
     .click({ force: true });
+});
+
+Then("I take a screenshot of the {string}", (screenshotFileName) => {
+  cy.screenshot(screenshotFileName);
 });
 
 When("I submit the search", () => {

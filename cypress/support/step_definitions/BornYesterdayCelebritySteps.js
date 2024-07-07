@@ -11,16 +11,6 @@ function getYesterdayDate() {
 }
 let thirdTitleText;
 
-
-Given('I navigate to the "Celebs" section', () => {
-  cy.get('[data-testid="nav-link-category"] span').contains("Celebs").click();
-});
-
-Given('I click on the "Born Today" link', () => {
-  cy.get("[href='/feature/bornondate/?ref_=nv_cel_brn']").click();
-});
-
-
 When("I open the Birthday dropdown", () => {
   cy.get("[data-testid=accordion-item-birthdayAccordion]").click();
 });
@@ -60,6 +50,3 @@ cy.get("[data-testid=nlib-title]")
   cy.get("[data-testid=nlib-title]").eq(2).click();
 });
 
-Then("I take a screenshot of the celebrity page", () => {
-  cy.screenshot("imdb_celebrity_page" + thirdTitleText);
-});

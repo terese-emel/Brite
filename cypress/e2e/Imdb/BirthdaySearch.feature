@@ -4,7 +4,7 @@ Feature: Birthday Search
 
     Given I am on the IMDb homepage
     When I open the navigation menu using navigation drawer icon
-    When I navigate to the "Born Today" section
+    When I navigate to the "Born Today" section under "Celebs"
     Then I clear the pre-selected birthday filter
     When I unfold the "Birth date" dropdown and select "From: Today"
     Then I set "To:" date 40 years ago using the date picker
@@ -15,6 +15,6 @@ Feature: Birthday Search
     Then I should see a description containing at least one link
     When I click on the 1st link in the description
     Then I should be on the linked webpage
-    Then I take a screenshot of the linked webpage
+    Then I take a screenshot of the "linked webpage"
 
  
