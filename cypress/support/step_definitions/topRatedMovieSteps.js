@@ -41,7 +41,10 @@ Then("I see the rating modal", () => {
 });
 
 When("I set the rating to 5 stars", () => {
-  cy.get(".ipc-starbar__rating__button").eq(4).click({ force: true }); 
+  cy.get(".ipc-starbar__rating__button")
+    .eq(4)
+    .click({ force: true })
+    .get(".ipc-rating-display__rating").contains("5"); 
 });
 
 When('I click on the "Rate" button in the modal', () => {
