@@ -15,11 +15,11 @@ When("I click on the first search result", () => {
 });
 
 Then("I am on Nicolas Cage's profile page", () => {
-  cy.get("h1").should("contain", "Nicolas Cage"); // Adjust selector if needed
+  cy.get("h1").should("contain", "Nicolas Cage"); 
 });
 
 When('I unfold the "Credits" section', () => {
-  cy.get("[data-testid^=Filmography]").find('a[href*="#credits"]').click(); // Adjust selector if needed
+  cy.get("[data-testid^=Filmography]").find('a[href*="#credits"]').click(); 
 });
 
 Then('I see the "Upcoming" tab', () => {
@@ -43,7 +43,7 @@ Then('the "Upcoming" tab is active', () => {
     .get("[id^=actor-upcoming-projects]")
     .find(".ipc-inline-list__item")
     .first()
-    .should("contain", "Upcoming"); // Adjust selector if needed
+    .should("contain", "Upcoming"); 
 });
 
 When("I click on the first movie with the 'Completed' tag", () => {
@@ -56,7 +56,6 @@ When("I click on the first movie with the 'Completed' tag", () => {
     .find("a")
     .click()
     .then(($link) => {
-      movieHref = $link.attr("href"); // Get the href attribute
-      cy.log(`Clicked on movie with href: ${movieHref}`); // Log the movie href
+      movieHref = $link.attr("href"); 
     });
 });
