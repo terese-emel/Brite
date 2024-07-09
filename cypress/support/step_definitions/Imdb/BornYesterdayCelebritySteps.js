@@ -42,10 +42,10 @@ cy.get("[data-testid=nlib-title]")
   .eq(2)
   .invoke("text")
   .then(($text) => {
-    thirdTitleText = $text.trim(); // Assign trimmed text to the variable
+    thirdTitleText = $text.trim(); 
   })
   .then(() => {
-    cy.log("Text of the 3rd title:", thirdTitleText); // Use the variable here
+    cy.log("Text of the 3rd title:", thirdTitleText); 
   });
   cy.get("[data-testid=nlib-title]").eq(2).click();
 });
