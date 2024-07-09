@@ -38,6 +38,5 @@ When('I click on the "Rate" button in the modal', () => {
 });
 
 Then("I see a confirmation message for the rating", () => {
-  // Add assertion to verify the confirmation message (might require waiting for the modal to close)
   cy.get(".ipc-promptable-base__content").should("not.be.visible");
 });
