@@ -53,7 +53,6 @@ Then("I click on the 1st celebrity name in the list", () => {
 });
 
 Then("I should be on the celebrity page", () => {
-  // Assert that the current URL matches the expected celebrity page pattern (replace with your assertion)
   cy.url().should("include", "/name/");
 });
 
