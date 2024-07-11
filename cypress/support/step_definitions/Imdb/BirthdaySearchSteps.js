@@ -21,20 +21,20 @@ When('I unfold the "Birth date" dropdown and select "From: Today"', () => {
   const [formattedDate, calculatedYear, calculatedMonth, calculatedDay] =
     calculateDateFortyYearsAgo();
 
-  cy.get("[data-testid=adv-search-expand-all]")
+  cy.get(adv-search-expand-all)
     .click()
-    .get("[data-testid=accordion-item-birthDateAccordion]")
+    .get(accordion-item-birthDateAccordion)
     .click()
     .parent()
     .should("be.visible")
-    .get("[data-testid=birthDate-start]")
+    .get(birthDate-start)
     .click()
     .type(formattedDate);
 });
 
 When('I set "To:" date {int} years ago using the date picker', () => {
   const [formattedDate] = calculateDateFortyYearsAgo();
-  cy.get("[data-testid=birthDate-end]").click().type(formattedDate);
+  cy.get(birthDate-end).click().type(formattedDate);
 });
 
 Then(
@@ -49,7 +49,7 @@ Then(
 );
 
 Then("I click on the 1st celebrity name in the list", () => {
-  cy.get("[data-testid=nlib-title]").first().click();
+  cy.get(nlib-title).first().click();
 });
 
 Then("I should be on the celebrity page", () => {
