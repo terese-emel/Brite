@@ -12,17 +12,17 @@ function getYesterdayDate() {
 let thirdTitleText;
 
 When("I open the Birthday dropdown", () => {
-  cy.get("[data-testid=accordion-item-birthdayAccordion]").click();
+  cy.get(accordion-item-birthdayAccordion).click();
 });
 
 When('I enter yesterday\'s date in the "Birthday" field', () => {
   const yesterdaysDate = getYesterdayDate();
   
-    cy.get("[data-testid=accordion-item-birthdayAccordion")
+    cy.get(accordion-item-birthdayAccordion)
       .click({ force: true })
-      .get("[data-testid=accordion-item-birthdayAccordion")
+      .get(accordion-item-birthdayAccordion)
       .click({ force: true })
-      .get("[data-testid=accordion-item-birthdayAccordion")
+      .get(accordion-item-birthdayAccordion)
       .click({ force: true })
       .get("[data-testid^=birthday-input-test-id]")
       .parent()
@@ -38,7 +38,7 @@ Then("I should see search results for celebrities born yesterday", () => {
 });
 
 When("I click on the 3rd celebrity name in the list", () => {
-cy.get("[data-testid=nlib-title]")
+cy.get(nlib-title)
   .eq(2)
   .invoke("text")
   .then(($text) => {
@@ -47,6 +47,6 @@ cy.get("[data-testid=nlib-title]")
   .then(() => {
     cy.log("Text of the 3rd title:", thirdTitleText); 
   });
-  cy.get("[data-testid=nlib-title]").eq(2).click();
+  cy.get(nlib-title).eq(2).click();
 });
 
