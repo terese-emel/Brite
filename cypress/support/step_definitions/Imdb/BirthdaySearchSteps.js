@@ -21,20 +21,25 @@ When('I unfold the "Birth date" dropdown and select "From: Today"', () => {
   const [formattedDate, calculatedYear, calculatedMonth, calculatedDay] =
     calculateDateFortyYearsAgo();
 
-  cy.get(adv-search-expand-all)
-    .click()
-    .get(accordion-item-birthDateAccordion)
-    .click()
+  cy.get("[id=birthdayAccordion]")
+    .get(".ipc-accordion__item__title")
+    .contains("Birth date")
+    .click({ force: true })
+    .get("[data-testid=adv-search-expand-all]")
+    .should("be.visible")
+    .click({ force: true })
+    .get("[data-testid=accordion-item-birthDateAccordion]")
     .parent()
     .should("be.visible")
-    .get(birthDate-start)
+    .click()
+    .get("[data-testid=birthDate-start]")
     .click()
     .type(formattedDate);
 });
 
 When('I set "To:" date {int} years ago using the date picker', () => {
   const [formattedDate] = calculateDateFortyYearsAgo();
-  cy.get(birthDate-end).click().type(formattedDate);
+  cy.get("[data-testid=birthDate-end]").click().type(formattedDate);
 });
 
 Then(
@@ -49,11 +54,11 @@ Then(
 );
 
 Then("I click on the 1st celebrity name in the list", () => {
-  cy.get(nlib-title).first().click();
+  cy.get("[data-testid='nlib-title']").first().click();
 });
 
 Then("I should be on the celebrity page", () => {
-  cy.url().should("include", "/name/");
+  cy.url().should("include", "/name/nm");
 });
 
 Then("I should see a description containing at least one link", () => {
@@ -69,7 +74,7 @@ When("I click on the 1st link in the description", () => {
 
 Then("I should be on the linked webpage", () => {
   
-  cy.url().should("include", "/title/");
+  cy.url().should("include", "/name/nm");
 });
 
 Then("I take a screenshot of the linked webpage", () => {
