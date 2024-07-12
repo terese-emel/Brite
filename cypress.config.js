@@ -17,5 +17,6 @@ module.exports = defineConfig({
     },
     specPattern: ["cypress/e2e/**/*.feature", "cypress/e2e/**/*.cy.js"],
     excludeSpecPattern: "cypress/e2e/Tentacle/TentacleInput.feature",
+    experimentalRunAllSpecs: true,
   },
 });
