@@ -11,11 +11,11 @@ When("I click on the second item in the list", () => {
 });
 
 When('I click on the "IMDb Rating" button', () => {
-  cy.get(hero-rating-bar__user-rating).eq(1).click();
+  cy.get("[data-testid=hero-rating-bar__user-rating]").eq(1).click();
 });
 
 When('I click on the "Rate" button', () => {
-  cy.get(hero-rating-bar__user-rating__unrated)
+  cy.get("[data-testid=hero-rating-bar__user-rating__unrated]")
     .contains("Rate")
     .wait(5000)
     .click({ force: true });

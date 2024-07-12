@@ -57,10 +57,6 @@ Then("I click on the 1st celebrity name in the list", () => {
   cy.get("[data-testid='nlib-title']").first().click();
 });
 
-Then("I should be on the celebrity page", () => {
-  cy.url().should("include", "/name/nm");
-});
-
 Then("I should see a description containing at least one link", () => {
   cy.get(".ipc-html-content-inner-div").find("a").should("exist");
 });
@@ -70,11 +66,6 @@ When("I click on the 1st link in the description", () => {
     .find("a")
     .first()
     .click();
-});
-
-Then("I should be on the linked webpage", () => {
-  
-  cy.url().should("include", "/name/nm");
 });
 
 Then("I take a screenshot of the linked webpage", () => {

@@ -11,5 +11,6 @@ Feature: Born Yesterday Celebrity Search
     When I submit the search
     Then I should see search results for celebrities born yesterday
     When I click on the 3rd celebrity name in the list
-    Then I take a screenshot of the "celebrity webpage"
+    Then I should be on the "name" page and url contains "/name/nm"
+    Then I take a screenshot of the linked webpage with filename as "BornYesterdayCelebritySearch" 
     

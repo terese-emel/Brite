@@ -42,3 +42,16 @@ When("I submit the search", () => {
 Then("I am on the movie page", () => {
   cy.url().should("contains", "/title/");
 });
+
+Then(
+  "I should be on the {string} page and url contains {string}",
+  (expectedPage, expectedUrlSegment) => {
+    cy.url().should("include", expectedPage);
+    cy.url().should("include", expectedUrlSegment);
+  }
+);
+
+
+Then("I take a screenshot of the linked webpage with filename as {string}", (expectedFilename) => {
+  cy.screenshot(expectedFilename);
+});
