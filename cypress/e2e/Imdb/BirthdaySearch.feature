@@ -11,10 +11,10 @@ Feature: Birthday Search
     When I submit the search
     Then I should see search results for celebrities born today (40 years ago)
     When I click on the 1st celebrity name in the list
-    Then I should be on the celebrity page
+    Then I should be on the "name" page and url contains "/name/nm"
     Then I should see a description containing at least one link
     When I click on the 1st link in the description
-    Then I should be on the linked webpage
-    Then I take a screenshot of the "linked webpage"
+    Then I should be on the "name" page and url contains "/name/nm"
+    Then I take a screenshot of the linked webpage with filename as "birthdaySearch40YearsAgo"
 
  

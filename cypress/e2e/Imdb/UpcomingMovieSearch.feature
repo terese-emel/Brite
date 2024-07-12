@@ -12,4 +12,4 @@ Feature: IMDb Navigation and Actions
     When I click on the "Upcoming" tab
     Then the "Upcoming" tab is active
     When I click on the first movie with the 'Completed' tag
-    Then I am on the movie page
+    Then I should be on the "title" page and url contains "/title/"

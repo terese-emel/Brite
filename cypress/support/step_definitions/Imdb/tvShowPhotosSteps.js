@@ -26,15 +26,15 @@ When('I go to the "Photos" section', () => {
 });
 
 Then("I see the list of photos", () => {
-  cy.get(mv-gallery-button)
+  cy.get("[data-testid=mv-gallery-button]")
     .click()
-    .get(section-images)
+    .get("[data-testid=section-images]")
     .should("be.visible");
 });
 
 // Implement logic to search for photos based on actor name within the Photos section
 When("I search for photos containing {string}", (actorName) => {
-  cy.get(image-chip-dropdown-test-id)
+  cy.get("[data-testid=image-chip-dropdown-test-id]")
     .click()
     .get("[id=Person-filter-select-dropdown]")
     .get("select")
@@ -53,5 +53,5 @@ When("I click on the second photo in the list", () => {
 });
 
 Then("I see the enlarged photo", () => {
- cy.url().should("include", "/mediaviewer/");
+ cy.url().should("include", "/mediaviewer/rm");
 });

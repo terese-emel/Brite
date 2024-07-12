@@ -24,7 +24,7 @@ When(
 When("I clear the pre-selected birthday filter", () => {
   cy.get("[data-testid^=selected-input-chip-list-birthday]")
     .click()
-    .get("[data-testid=adv-search-expand-all]")
+    .get("[data-testid=adv-search-expand-all]").should("be.visible")
     .click({ force: true });
 });
 
@@ -33,7 +33,7 @@ Then("I take a screenshot of the {string}", (screenshotFileName) => {
 });
 
 When("I submit the search", () => {
-  cy.get("[data-testid^=adv-search-get-results]")
+  cy.get("button").get("[data-testid=adv-search-get-results]")
     .wait(1000)
     .should("be.visible")
     .click();
@@ -41,4 +41,17 @@ When("I submit the search", () => {
 
 Then("I am on the movie page", () => {
   cy.url().should("contains", "/title/");
+});
+
+Then(
+  "I should be on the {string} page and url contains {string}",
+  (expectedPage, expectedUrlSegment) => {
+    cy.url().should("include", expectedPage);
+    cy.url().should("include", expectedUrlSegment);
+  }
+);
+
+
+Then("I take a screenshot of the linked webpage with filename as {string}", (expectedFilename) => {
+  cy.screenshot(expectedFilename);
 });
