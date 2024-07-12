@@ -12,25 +12,26 @@ function getYesterdayDate() {
 let thirdTitleText;
 
 When("I open the Birthday dropdown", () => {
-  cy.get(accordion-item-birthdayAccordion).click();
+  cy.get("[id=birthdayAccordion]")
+    .get(".ipc-accordion__item__title")
+    .contains("Birthday")
+    .click({ force: true });
 });
 
 When('I enter yesterday\'s date in the "Birthday" field', () => {
   const yesterdaysDate = getYesterdayDate();
-  
-    cy.get(accordion-item-birthdayAccordion)
-      .click({ force: true })
-      .get(accordion-item-birthdayAccordion)
-      .click({ force: true })
-      .get(accordion-item-birthdayAccordion)
-      .click({ force: true })
-      .get("[data-testid^=birthday-input-test-id]")
-      .parent()
-      .should("be.visible")
-      .click()
-      .type(yesterdaysDate)
-      .type("{enter}")
-      .wait(1000);
+
+  cy.get("[id=birthdayAccordion]")
+    .get(".ipc-accordion__item__title")
+    .contains("Birthday")
+    .click({ force: true })
+    .get("input[data-testid='birthday-input-test-id']")
+    .parent()
+    .should("be.visible")
+    .click()
+    .type(yesterdaysDate)
+    .type("{enter}")
+    .wait(1000);
 });
 
 Then("I should see search results for celebrities born yesterday", () => {
@@ -38,15 +39,14 @@ Then("I should see search results for celebrities born yesterday", () => {
 });
 
 When("I click on the 3rd celebrity name in the list", () => {
-cy.get(nlib-title)
-  .eq(2)
-  .invoke("text")
-  .then(($text) => {
-    thirdTitleText = $text.trim(); 
-  })
-  .then(() => {
-    cy.log("Text of the 3rd title:", thirdTitleText); 
-  });
-  cy.get(nlib-title).eq(2).click();
+  cy.get("[data-testid='nlib-title']")
+    .eq(2)
+    .invoke("text")
+    .then(($text) => {
+      thirdTitleText = $text.trim();
+    })
+    .then(() => {
+      cy.log("Text of the 3rd title:", thirdTitleText);
+    });
+ cy.get("[data-testid='nlib-title']").eq(2).click();
 });
-
