@@ -17,10 +17,9 @@ function calculateDateFortyYearsAgo() {
   return [`${year}-${month}-${day}`, year, month, day];
 }
 
-When('I unfold the "Birth date" dropdown and select "From: Today"', () => {
-  const [formattedDate, calculatedYear, calculatedMonth, calculatedDay] =
-    calculateDateFortyYearsAgo();
+const [formattedDate, calculatedYear] = calculateDateFortyYearsAgo();
 
+When('I unfold the "Birth date" dropdown and select "From: Today"', () => {
   cy.get("[id=birthdayAccordion]")
     .get(".ipc-accordion__item__title")
     .contains("Birth date")
@@ -38,14 +37,12 @@ When('I unfold the "Birth date" dropdown and select "From: Today"', () => {
 });
 
 When('I set "To:" date {int} years ago using the date picker', () => {
-  const [formattedDate] = calculateDateFortyYearsAgo();
   cy.get("[data-testid=birthDate-end]").click().type(formattedDate);
 });
 
 Then(
   "I should see search results for celebrities born today \\({int} years ago\\)",
   () => {
-    const [calculatedYear] = calculateDateFortyYearsAgo();
     cy.get(".ipc-html-content-inner-div").should(
       "contain",
       new RegExp(`${calculatedYear}\\.\\d{2}\\.\\d{2}|\\d{4}-\\d{2}-\\d{2}`)
@@ -62,10 +59,7 @@ Then("I should see a description containing at least one link", () => {
 });
 
 When("I click on the 1st link in the description", () => {
-  cy.get(".ipc-html-content-inner-div")
-    .find("a")
-    .first()
-    .click();
+  cy.get(".ipc-html-content-inner-div").find("a").first().click();
 });
 
 Then("I take a screenshot of the linked webpage", () => {
