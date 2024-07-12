@@ -14,7 +14,8 @@ function calculateDateFortyYearsAgo() {
   const year = fortyYearsAgo.getFullYear().toString().padStart(4, "0");
   const month = (fortyYearsAgo.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-indexed
   const day = fortyYearsAgo.getDate().toString().padStart(2, "0");
-  return [`${year}-${month}-${day}`, year, month, day];
+  const formattedDate = `${year}-${month}-${day}`;
+  return [formattedDate, year, month, day];
 }
 
 const [formattedDate, calculatedYear] = calculateDateFortyYearsAgo();
