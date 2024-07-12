@@ -34,5 +34,5 @@ The "Rate" button only becomes enabled when a user selects a rating below 10 sta
 
 ### Additional Information:
 
-- Include any screenshots or video recordings that demonstrate the issue.(sample screen shots : ![alt text](image.png))
+- Include any screenshots or video recordings that demonstrate the issue.
 - Provide any relevant code snippets or error messages (if applicable).
