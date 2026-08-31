@@ -1,6 +1,6 @@
-# Brite
 
-## QA Engineer Challenge
+
+## IMdb
 
 Please create a git repository and send a link to it as part of your solution.
 Your checklist is the following one:
